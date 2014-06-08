@@ -1,11 +1,13 @@
 
 
+
+
 <ul>
-  <% all_comments.each do |c2|  %>
-    <% if c2.parent_comment_id == c1.id %>
+  <% link.comments_hash[c1.id].each do |c2|  %>
+
       <%= link_to  c2.content , comment_url(c2) %>
-      <%= render "comments/comment", c1: c2, all_comments: all_comments %>
-    <% end %>
+      <%= render "comments/comment", c1: c2, link: link %>
+
   <% end  %>
 
 </ul>

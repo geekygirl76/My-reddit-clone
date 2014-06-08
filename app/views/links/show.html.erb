@@ -24,7 +24,7 @@ Content:<%= @link.body %>
 
     <% if comment.parent_comment_id.nil? %>
       <li><%= link_to comment.content, comment_url(comment) %>
-      <%= render "comments/comment", c1: comment,  all_comments: @all_comments %></li>
+      <%= render "comments/comment", c1: comment,  all_comments: @all_comments, link: @link %></li>
     <% end %>
     <br>
 
