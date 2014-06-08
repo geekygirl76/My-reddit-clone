@@ -8,6 +8,6 @@ class Comment < ActiveRecord::Base
   has_many :child_comments, class_name: "Comment", foreign_key: :parent_comment_id, primary_key: :id
   belongs_to :parent_comments, class_name: "Comment", foreign_key: :parent_comment_id, primary_key: :id
 
-
+  has_many :votes, as: :votable
 
 end

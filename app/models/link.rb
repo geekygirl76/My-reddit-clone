@@ -5,9 +5,12 @@ class Link < ActiveRecord::Base
 
   belongs_to :user, inverse_of: :links
 
-
+  has_many :votes, as: :votable
   has_many :comments, inverse_of: :link
-
+  attr_accessor :vote_value
+  def vote_value
+    @vote_value ||= 0
+  end
 
   def top_level_comments
     comments.select { |comment| comment.parent_comment_id.nil? }

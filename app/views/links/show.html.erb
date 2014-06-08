@@ -5,6 +5,11 @@ Content:<%= @link.body %>
 
 <%=  link_to @link.url, @link.url %>
 <br>
+<br>
+Vote Value: <%= @link.vote_value %>
+<%= button_to "Upvote", upvote_link_url, method: :upvote %>
+<%= button_to "Downvote", downvote_link_url, method: :downvote %>
+<br>
 <%= link_to "Edit Post", edit_link_url %>
 
 <%= button_to "Delete Post", link_url(@link), method: :delete %>
