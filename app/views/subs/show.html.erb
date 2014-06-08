@@ -1,0 +1,20 @@
+<h1>Subforum: <%= @sub.title %></h1>
+<br>
+<%= link_to "Edit Subforum", edit_sub_url(@sub) %>
+<%= button_to "Delete Subforum", sub_url(@sub), method: :delete %>
+<h3>Description</h3>
+<%= @sub.description %>
+<br>
+
+<h5>Posts in this forum:</h5>
+
+<ul>
+  <% @sub.links.each do |link|  %>
+    <li><%= link.title %>:<%= link_to link.title, link %></li>
+    <li><%= link.body %></li>
+
+  <br>
+  <% end %>
+</ul>
+
+<%= link_to "Publish a post", new_sub_link_url(@sub) %>

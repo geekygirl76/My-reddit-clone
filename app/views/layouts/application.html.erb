@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RedditOnRails</title>
+
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<% if current_user %>
+  <%= link_to "My Page", user_url(current_user) %>:<%= current_user.name %>
+  <%= button_to "Sign Out", session_url, method: :delete %>
+  <%= link_to "Subforum List", subs_url%>
+<% end %>
+
+<%=  flash[:errors].join(", ").html_safe if flash[:errors]%>
+
+<%= yield %>
+
+</body>
+</html>

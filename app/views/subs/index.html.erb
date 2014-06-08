@@ -1,0 +1,11 @@
+<h1>Subforums List</h1>
+
+<% @subs.each do |sub| %>
+  <li><%= sub.title %></li>
+  <li><%= sub.description %></li>
+  <li><%= link_to sub.title, sub_url(sub) %></li>
+
+  <br>
+<% end %>
+
+<br>

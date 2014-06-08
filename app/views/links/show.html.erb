@@ -1,0 +1,34 @@
+<h1><%= @link.title %></h1>
+ Author: <%= @link.user.name %>
+Content:<%= @link.body %>
+<br>
+
+<%=  link_to @link.url, @link.url %>
+<br>
+<%= link_to "Edit Post", edit_link_url %>
+
+<%= button_to "Delete Post", link_url(@link), method: :delete %>
+
+<%= link_to "Back to Forum", @link.sub %>
+
+<%= link_to "Back to Forum Index Page", subs_url %>
+
+<br>
+
+<h5>Comments on this post</h5>
+<ul>
+
+  <% @all_comments = Comment.includes(:user).where(link_id: @link.id) %>
+
+  <% @all_comments.each do |comment|  %>
+
+    <% if comment.parent_comment_id.nil? %>
+      <li><%= link_to comment.content, comment_url(comment) %>
+      <%= render "comments/comment", c1: comment,  all_comments: @all_comments %></li>
+    <% end %>
+    <br>
+
+  <% end %>
+</ul>
+
+<%= link_to "Comment on this post", new_link_comment_url(@link) %>

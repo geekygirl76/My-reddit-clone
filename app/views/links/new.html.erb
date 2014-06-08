@@ -1,0 +1,22 @@
+<h1>Create New Post</h1>
+
+<form action="<%= sub_links_url(@sub) %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  <label>
+  Title
+  <input type="text" name="link[title]" value="<%= @link.title %>">
+  </label>
+
+  <label>
+  URL
+  <input type="text" name="link[url]" value="<%= @link.url %>">
+  </label>
+
+  <label>
+  Content
+  <input type="text" name="link[body]" value="<%= @link.body %>">
+  </label>
+
+  <input type="submit" value="Publish Your Post!">
+</form>

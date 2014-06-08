@@ -1,0 +1,2 @@
+class LinkCommentsController < ApplicationController
+end

@@ -1,0 +1,2 @@
+class LinkSubsController < ApplicationController
+end

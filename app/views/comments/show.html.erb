@@ -1,0 +1,15 @@
+<br>
+<br>
+Content:
+<%= @comment.content %>
+<br>
+
+Auther:
+<%= @comment.user.name %>
+<br>
+
+Created time:
+<%= @comment.created_at %>
+<br>
+
+<%= link_to "comment on this comment", new_comment_comment_url(@comment) %>

@@ -1,0 +1,11 @@
+
+
+<ul>
+  <% all_comments.each do |c2|  %>
+    <% if c2.parent_comment_id == c1.id %>
+      <%= link_to  c2.content , comment_url(c2) %>
+      <%= render "comments/comment", c1: c2, all_comments: all_comments %>
+    <% end %>
+  <% end  %>
+
+</ul>
